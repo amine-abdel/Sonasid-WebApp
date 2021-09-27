@@ -1,0 +1,114 @@
+﻿@model Sonacid.Models.H_V
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Hauteur des verrous
+    </h1>
+
+    <div class="section-body">
+        <div class="container">
+            <div class="py-3 text-center">
+                <img class="d-block mx-auto mb-4" src="~/img/add1.gif" alt="" width="50" height="50">
+                <h3>Ajouter une linge  </h3>
+                <p class="lead"></p>
+            </div>
+
+
+            <form asp-action="Create" class=" border rounded  container-fluid pt-4 " style="background-color: white">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row  ">
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Diametre</span>
+                            </div>
+
+                            <input asp-for="Diametre" class="form-control" id="form8Example5" type="number"  />
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Mesures</span>
+                            </div>
+
+                            <input asp-for="Mesures" class="form-control" type="number"  step="0.1"/>
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Min</span>
+                            </div>
+
+                            <input asp-for="Min" class="form-control" type="number"  step="0.1"/>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br />
+                <br />
+                <div class="row">
+
+
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Max</span>
+                            </div>
+
+                            <input asp-for="Max" class="form-control" type="number"  step="0.1" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Cible</span>
+                            </div>
+
+                            <input asp-for="Cible" class="form-control" type="number"  step="0.1" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Post</span>
+                            </div>
+
+                            <input asp-for="Poste" class="form-control" />
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <br />
+                <input type="submit" value="Ajouter" class="btn  btn-sm btn-success" />
+
+
+                <a asp-action="Index" class="btn btn-sm btn-outline-info "><i class="bi bi-arrow-bar-left"></i>retour à la liste</a>
+                <br />
+                <br />
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

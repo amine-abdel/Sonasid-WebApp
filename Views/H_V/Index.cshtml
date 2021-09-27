@@ -1,0 +1,117 @@
+﻿@model Sonacid.ViewModels.H_VResultViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Hauteur des verrous
+    </h1>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card" style="width:100%">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+                                <a asp-action="Create" class="btn active" style="font-size:10px"><i class="bi bi-plus-circle"></i>Ajouter</a>
+
+                            </div>
+                        </div>
+                        <h4>DIA  10,00</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered  table-striped table-hover text-center ">
+                                <tr>
+                                    <th>Diametre</th>
+                                    <th>Mesures</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Cible</th>
+                                    <th>Post</th>
+                                    <th>Actions</th>
+                                </tr>
+                                @foreach (var item in Model.HV)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Diametre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mesures)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cible)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Poste)
+                                        </td>
+                                        
+                                      
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                <a asp-controller="H_V" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-action btn-info"><i class="bi bi-pencil"></i></a>
+                                                @*                    <a asp-controller="Masse_Lineique_II" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="bi bi-card-text"></i>Details</a>
+                                                *@
+                                                <a asp-controller="H_V" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-action btn-danger"><i class="bi bi-x-circle"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+                                <a href="#" class="btn active">Week</a>
+                                <a href="#" class="btn">Month</a>
+                                <a href="#" class="btn">Year</a>
+                            </div>
+                        </div>
+                        <h4>Statistics</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart" height="158"></canvas>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <article class="card-group-item">
+                        <header class="card-header"><h6 class="title">Synthèse </h6></header>
+                        <div class="filter-content">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item">Min(mesures)<span class="float-right badge badge-light round">@Model.Min_mesures</span> </a>
+                                <a href="#" class="list-group-item">Max(mesures)  <span class="float-right badge badge-light round">@Model.Max_mesures</span>  </a>
+                            
+                            </div>  <!-- list-group .// -->
+                        </div>
+                    </article> <!-- card-group-item.// -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

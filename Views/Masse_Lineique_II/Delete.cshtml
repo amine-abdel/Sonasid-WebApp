@@ -1,0 +1,112 @@
+﻿@model Sonacid.Models.Masse_Lineique_II
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Masse Lineique  FeE400-1 Veine II
+    </h1>
+
+    <div class="section-body">
+        <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom">
+                <h4 class="d-flex align-items-center text-dark text-decoration-none">
+                    <img src="~/img/oie.gif" widt="64" height="64" />
+                    <span class="fs-4">Êtes-vous sûr de vouloir supprimer ce?</span>
+                </h4>
+            </header>
+
+            <div class="p-5 mb-4 card rounded-3 ">
+                <div class="container-fluid py-5 ">
+
+                    <table class="table table-bordered table-striped table-hover text-center ">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.N_ech)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SP_EBOU)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Mesures)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MLDivMoy)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Min)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Max)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Cible)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Reduction)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Conforme)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-warning">
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.N_ech)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.SP_EBOU)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Mesures)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.MLDivMoy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Min)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Max)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Cible)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Reduction)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Conforme)
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <form asp-action="Delete">
+                        <button class="btn btn-danger btn-sm" type="submit">confirmer la suppression</button>
+                        <a asp-action="Index" class="btn btn-outline-info btn-sm">retour à la liste</a>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

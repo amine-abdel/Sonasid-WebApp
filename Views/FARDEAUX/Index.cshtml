@@ -1,0 +1,148 @@
+﻿@model MVC_SONASID.ViewModels.FARDEAUXVeiwModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        COURONNES
+    </h1>
+    <h6 class="section-header"> INDICATEURS DE PERFORMANCE PROJET CLIENT FIRST CHOICE</h6>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-8">
+
+                <div class="card" style="width:100%">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+                                <a asp-action="Create" class="btn active" style="font-size:13px"><i class="bi bi-plus-circle"></i>Modifier</a>
+
+                            </div>
+                        </div>
+                        <h4>EVALUATION DES INDICATEURS DE CONFORMITE AU FARDEAU TYPE</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <table class="table table-bordered  table-hover text-center border-dark">
+                            <thead>
+                                <tr>
+                                    <th></th>
+
+                                    <th>
+                                        Non Conforme
+                                    </th>
+                                    <th>
+                                        Derogeable
+                                    </th>
+                                    <th>
+                                        conforme
+                                    </th>
+                                    <th>
+                                        Moyenne
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ListC)
+                                {
+                                    <tr>
+                                        <td class="bg-light text-left">
+                                            <b>
+                                                @Html.DisplayFor(modelItem => item.Idicateur)
+                                            </b>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Non_Conforme)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Derogeable)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.conforme)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Moyenne)
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <article class="card-group-item">
+                        <header class="card-header"><h6 class="title">Synthèse </h6></header>
+                        <div class="filter-content">
+                            <div class="list-group list-group-flush">
+                                <form asp-action="Create" method="POST">
+
+
+                                    @for (int i = 0; i < Model.ListC.Count(); i++)
+                                    {
+
+
+
+
+                                        <input hidden type="text" asp-for="@Model.ListC[i].Idicateur" value="@Model.ListC[i].Idicateur" />
+
+
+
+                                        <input asp-for="@Model.ListC[i].Non_Conforme" value="@Model.ListC[i].Non_Conforme" class="form-control" hidden />
+
+
+
+
+                                        <input asp-for="@Model.ListC[i].Derogeable" value="@Model.ListC[i].Derogeable" class="form-control" hidden />
+
+
+
+                                        <input asp-for="@Model.ListC[i].conforme" value="@Model.ListC[i].conforme" class="form-control" hidden />
+
+
+
+
+                                    }
+
+
+
+
+                                    <div class="input-group pl-2 pr-2 pb-2 pt-2">
+
+
+                                        <select asp-for="@Model.nbr_verification" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                            <option disabled selected>---Nombre de vérification---</option>
+                                            <option value="18">18</option>
+                                            <option value="36">36</option>
+                                            <option value="54">54</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-info" type="submit">valider</button>
+                                        </div>
+                                    </div>
+
+
+
+                                </form>
+
+                                <a href="#" class="list-group-item">SCORE <span class="float-right badge badge-light round">@Model.score </span></a>
+                                <a href="#" class="list-group-item">NOMBRE DE VERIFICATION<span class="float-right badge badge-light round">@Model.nbr_verification</span>  </a>
+                                <a href="#" class="list-group-item text-success">CONFORME <span class="float-right badge badge-light round"> @Model.conforme</span> </a>
+
+
+                            </div>  <!-- list-group .// -->
+                        </div>
+                    </article> <!-- card-group-item.// -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,116 @@
+﻿@model Sonacid.Models.H_V
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Masse Lineique  FeE400-1 Veine I
+    </h1>
+
+    <div class="section-body">
+        <div class="container">
+            <div class="py-3 text-center">
+                <img class="d-block mx-auto mb-4" src="~/img/edit1.gif" alt="" width="72" height="57">
+                <h2>Modifier les données</h2>
+                <p class="lead"></p>
+            </div>
+
+
+
+            <!-- form  edit-->
+            <form asp-action="Edit" class=" border rounded  container-fluid pt-4 " style="background-color: white">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row  ">
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Diametre</span>
+                            </div>
+
+                            <input type="number" step="0.1" asp-for="Diametre" class="form-control" id="form8Example5" />
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Mesures</span>
+                            </div>
+
+                            <input type="number" step="0.1" asp-for="Mesures" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Min</span>
+                            </div>
+
+                            <input type="number" step="0.1" asp-for="Min" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <div class="row">
+
+
+
+
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Max</span>
+                            </div>
+
+                            <input type="number" step="0.1" asp-for="Max" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Cible</span>
+                            </div>
+
+                            <input type="number" step="0.1" asp-for="Cible" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">Poste</span>
+                            </div>
+
+                            <input type="number"  asp-for="Poste" class="form-control" />
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <br />
+                <br />
+                <input type="submit" value="Modifier" class="btn  btn-sm btn-success" />
+
+
+                <a asp-action="Index" class="btn btn-sm btn-outline-info "><i class="bi bi-arrow-bar-left"></i>retour à la liste</a>
+                <br />
+                <br />
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,160 @@
+﻿@model Sonacid.ViewModels.Masse_Lineique_IViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    var NombreConfirm = 0;var NbMesures = 0;var Max = 0;var Min = 0;var Moy = 0d;var Taux = 0d;
+    if (Model.Nombre_Confirm != 0)
+    {
+        NombreConfirm = Model.Nombre_Confirm;
+    }
+    if (Model.Nombre_Mesures != 0)
+    {
+        NbMesures = @Model.Nombre_Mesures;
+
+    }
+    if (Model.Max != 0)
+    {
+        Max = @Model.Max;
+    }
+    if (Model.Min != 0)
+    {
+        Min = Model.Min;
+    }
+    if (Model.Moy != 0)
+    {
+        Moy = Model.Moy;
+    }
+    if (Model.Taux_Conformite!=0)
+    {
+        Taux = Model.Taux_Conformite;
+    }
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Masse Lineique  FeE400-1 Veine I
+    </h1>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card" style="width:100%">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+                                <a asp-action="Create" class="btn active" style="font-size:10px"><i class="bi bi-plus-circle"></i>Ajouter</a>
+                                
+                            </div>
+                        </div>
+                        <h4>DIA  10,00</h4>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered  table-striped table-hover text-center ">
+                                <tr>
+                                    <th>N_ech</th>
+                                    <th>Nombre</th>
+                                    <th>SP_EBOU</th>
+                                    <th>Mesures</th>
+                                    <th>MLDivMoy</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Cible</th>
+                                    <th>Reduction</th>
+                                    <th>Conforme</th>
+                                    <th>Actions</th>
+                                </tr>
+                                @foreach (var item in Model.Ml_I_list)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.N_ech)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SP_EBOU)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mesures)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MLDivMoy)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cible)
+                                        </td>
+                                        <td>
+                                            @String.Format("{0:0.00}", item.Reduction)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Conforme)
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                <a asp-controller="Masse_Lineique_I" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-action btn-info"><i class="bi bi-pencil"></i></a>
+                                                @*                    <a asp-controller="Masse_Lineique_II" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary"><i class="bi bi-card-text"></i>Details</a>
+                                                *@
+                                                <a asp-controller="Masse_Lineique_I" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-action btn-danger"><i class="bi bi-x-circle"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+                                <a href="#" class="btn active">Week</a>
+                                <a href="#" class="btn">Month</a>
+                                <a href="#" class="btn">Year</a>
+                            </div>
+                        </div>
+                        <h4>Statistics</h4>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart" height="158"></canvas>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <article class="card-group-item">
+                        <header class="card-header"><h6 class="title">Synthèse </h6></header>
+                        <div class="filter-content">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item">N Confirm <span class="float-right badge badge-light round">@NombreConfirm</span> </a>
+                                <a href="#" class="list-group-item">Nombre Mesures  <span class="float-right badge badge-light round">@NbMesures</span>  </a>
+                                <a href="#" class="list-group-item">Max<span class="float-right badge badge-light round">@Max</span>  </a>
+                                <a href="#" class="list-group-item">Min <span class="float-right badge badge-light round">@Min</span>  </a>
+                                <a href="#" class="list-group-item">Moyenne<span class="float-right badge badge-light round">@Moy</span>  </a>
+                                <a href="#" class="list-group-item">Taux conformite <span class="float-right badge badge-light round">@Taux</span>  </a>
+                            </div>  <!-- list-group .// -->
+                        </div>
+                    </article> <!-- card-group-item.// -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+ 
+</section>

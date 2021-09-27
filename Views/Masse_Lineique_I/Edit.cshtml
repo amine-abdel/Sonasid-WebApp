@@ -1,0 +1,136 @@
+﻿@model Sonacid.Models.Masse_Lineique_I
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        Masse Lineique  FeE400-1 Veine I
+    </h1>
+
+    <div class="section-body">
+        <div class="container">
+            <div class="py-3 text-center">
+                <img class="d-block mx-auto mb-4" src="~/img/edit1.gif" alt="" width="72" height="57">
+                <h2>Modifier les données</h2>
+                <p class="lead"></p>
+            </div>
+
+
+
+            <!-- form  edit-->
+            <form asp-action="Edit" class=" border rounded  container-fluid pt-4 " style="background-color: white">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row  ">
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">N_ech</span>
+                            </div>
+
+                            <input asp-for="N_ech" class="form-control" id="form8Example5" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">Nombre</span>
+                            </div>
+
+                            <input asp-for="Nombre" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">SP_EBOU</span>
+                            </div>
+
+                            <input asp-for="SP_EBOU" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">Mesures</span>
+                            </div>
+
+                            <input asp-for="Mesures" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <br />
+                <div class="row">
+
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">ML/Moy</span>
+                            </div>
+
+                            <input asp-for="MLDivMoy" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">Min</span>
+                            </div>
+
+                            <input asp-for="Min" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">Max</span>
+                            </div>
+
+                            <input asp-for="Max" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend2" style="background-color: #de6813">Cible</span>
+                            </div>
+
+                            <input asp-for="Cible" class="form-control" />
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <br />
+                <br />
+                <input type="submit" value="Modifier" class="btn  btn-sm btn-success" />
+
+
+                <a asp-action="Index" class="btn  btn-outline-info btn-sm "><i class="bi bi-arrow-bar-left"></i>retour à la liste</a>
+                
+                <br />
+                <br />
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

@@ -1,0 +1,100 @@
+﻿@model MVC_SONASID.ViewModels.FARDEAUXVeiwModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="section">
+    <h1 class="section-header">
+        FARDEAUX
+    </h1>
+
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card" style="width:100%">
+                    <div class="card-header">
+                        <div class="float-right">
+                            <div class="btn-group">
+
+
+                            </div>
+                        </div>
+                        <h4 class="text-success">Modification des données</h4>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form asp-action="Create" class=" border rounded  container-fluid pt-4 " style="background-color: white" method="POST">
+
+
+                            @for (int i = 0; i < Model.ListC.Count(); i++)
+                            {
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row  ">
+                                    <div class="col p-2">
+
+
+
+                                        <p class="input-group" style="color:#1e1616"><b>@Html.DisplayFor(m => @Model.ListC[i].Idicateur)</b></p>
+
+                                        <input hidden type="text" asp-for="@Model.ListC[i].Idicateur" value="@Model.ListC[i].Idicateur" />
+                                    </div>
+
+                                    <div class="col">
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">1º</span>
+                                            </div>
+
+                                            <input asp-for="@Model.ListC[i].Non_Conforme" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend2" style=" background-color: #de6813">2º</span>
+                                            </div>
+
+                                            <input asp-for="@Model.ListC[i].Derogeable" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend2"style=" background-color: #de6813" >3º</span>
+                                            </div>
+
+                                            <input asp-for="@Model.ListC[i].conforme" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <br />
+                            }
+                            <br />
+                            <input type="submit" value="Enregistrer la modification" class="btn  btn-sm btn-success" />
+
+
+                            <a asp-action="Index" class="btn btn-sm btn-outline-info "><i class="bi bi-arrow-bar-left"></i>retour à la liste</a>
+                            <br />
+                            <br />
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
